@@ -1,0 +1,1 @@
+ssh mgreif@46.38.255.83 "deploybackend ~/projects/carty-service"

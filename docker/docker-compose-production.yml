@@ -1,0 +1,10 @@
+services:
+  carty-service:
+    container_name: carty-service
+    image: carty-service:release
+    network_mode: host
+    env_file:
+      - ../.env
+    build: ..
+    volumes:
+      - /home/mgreif/logs/carty-service:/app/logs

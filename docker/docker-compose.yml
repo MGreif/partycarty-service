@@ -1,0 +1,9 @@
+services:
+  carty-service:
+    container_name: carty-service
+    network_mode: host
+    env_file:
+      - ../.env
+    build: ..
+    volumes:
+      - ../logs:/app/logs
