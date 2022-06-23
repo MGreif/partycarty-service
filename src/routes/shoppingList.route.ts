@@ -1,10 +1,11 @@
 import * as express from 'express'
-import * as UserController from '../controller/shoppingList.controller'
+import * as ShoppingListController from '../controller/shoppingList.controller'
 const router = express.Router()
 
-router.get('/', UserController.getShoppingLists)
-router.post('/', UserController.createShoppingList)
-router.delete('/:id', UserController.deleteShoppingList)
-router.patch('/:id', UserController.updateShoppingList)
+router.get('/', ShoppingListController.getShoppingLists)
+router.get('/:id', ShoppingListController.getShoppingList)
+router.post('/', ShoppingListController.createShoppingList)
+router.delete('/:id', ShoppingListController.deleteShoppingList)
+router.patch('/:id', ShoppingListController.updateShoppingList)
 
 export default router

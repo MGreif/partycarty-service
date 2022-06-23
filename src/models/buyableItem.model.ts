@@ -9,7 +9,7 @@ export enum ECategory {
   FROZEN = 'FROZEN',
 }
 
-export type TFoodItem = {
+export type TBuyableItem = {
   _id: string
   createdAt: Date
   updatedAt: Date
@@ -19,7 +19,7 @@ export type TFoodItem = {
   fluid: boolean
 }
 
-export type TFoodItemDto = TFoodItem & {
+export type TBuyableItemDto = TBuyableItem & {
   __v: number
 }
 
@@ -42,6 +42,6 @@ const foodItemSchema = new mongoose.Schema(
   }
 )
 
-const FoodItemModel = mongoose.model('foodItem', foodItemSchema)
+const BuyableItemModel = mongoose.model('foodItem', foodItemSchema)
 
-export default FoodItemModel
+export default BuyableItemModel

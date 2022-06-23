@@ -4,7 +4,7 @@ import * as cors from 'cors'
 import indexRouter from './routes/index'
 import shoppingListRouter from './routes/shoppingList.route'
 import listItemRouter from './routes/listItem.route'
-import foodItemRouter from './routes/foodItem.route'
+import foodItemRouter from './routes/buyableItem.route'
 import { errorHandler } from './errorHandler'
 import { loggerMiddleware } from './config/logger'
 
@@ -12,7 +12,8 @@ const app = express()
 
 app.use(express.json())
 const corsOptions = {
-  origin: 'http://frontend.greif.me',
+  //origin: 'http://frontend.greif.me',
+  origin: '*',
 }
 
 app.use(cors(corsOptions))

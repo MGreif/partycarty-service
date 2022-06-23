@@ -1,6 +1,5 @@
 import { HttpError, NotFoundError } from '../errorHandler'
 import * as ShoppingListService from '../services/shoppingList.service'
-import * as bcrypt from 'bcrypt'
 
 const createShoppingList = async (req, res, next) => {
   try {
@@ -16,6 +15,16 @@ const getShoppingLists = async (req, res, next) => {
   try {
     const { query } = req
     const result = await ShoppingListService.getShoppingLists(query)
+    res.json(result)
+  } catch (error) {
+    next(error)
+  }
+}
+
+const getShoppingList = async (req, res, next) => {
+  try {
+    const { params } = req
+    const result = await ShoppingListService.getShoppingList({ _id: params.id })
     res.json(result)
   } catch (error) {
     next(error)
@@ -54,4 +63,5 @@ export {
   getShoppingLists,
   deleteShoppingList,
   updateShoppingList,
+  getShoppingList,
 }
