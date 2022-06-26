@@ -23,7 +23,7 @@ export type TBuyableItemDto = TBuyableItem & {
   __v: number
 }
 
-const foodItemSchema = new mongoose.Schema(
+const buyableItemSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     category: {
@@ -33,6 +33,7 @@ const foodItemSchema = new mongoose.Schema(
     },
     picture_url: { type: String },
     fluid: { type: Boolean, default: false },
+    verified: { type: Boolean, default: false },
   },
   {
     timestamps: {
@@ -42,6 +43,6 @@ const foodItemSchema = new mongoose.Schema(
   }
 )
 
-const BuyableItemModel = mongoose.model('foodItem', foodItemSchema)
+const BuyableItemModel = mongoose.model('buyableItem', buyableItemSchema)
 
 export default BuyableItemModel

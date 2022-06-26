@@ -17,13 +17,13 @@ export type TListItemDto = TListItem & {
 
 const listItemSchema = new mongoose.Schema(
   {
-    foodItem: {
+    buyableItem: {
       type: mongoose.Types.ObjectId,
-      ref: 'foodItem',
+      ref: 'buyableItem',
       required: true,
     },
     quantity: { type: Number, default: 1 },
-    votings: { type: Number, default: 0 },
+    votes: { type: Number, default: 0 },
     bought: { type: Boolean, default: false },
     tag: { type: String },
   },

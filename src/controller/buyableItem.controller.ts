@@ -1,11 +1,13 @@
-import { HttpError, NotFoundError } from '../errorHandler'
+import { NotFoundError } from '../errorHandler'
 import * as BuyableItemService from '../services/buyableItem.service '
-import * as bcrypt from 'bcrypt'
 
 const createBuyableItem = async (req, res, next) => {
   try {
     const { body } = req
-    const result = await BuyableItemService.createBuyableItem(body)
+    const result = await BuyableItemService.createBuyableItem({
+      ...body,
+      verified: false,
+    })
     res.json(result)
   } catch (error) {
     next(error)
@@ -15,7 +17,10 @@ const createBuyableItem = async (req, res, next) => {
 const getBuyableItems = async (req, res, next) => {
   try {
     const { query } = req
-    const result = await BuyableItemService.getBuyableItems(query)
+    const result = await BuyableItemService.getBuyableItems({
+      ...query,
+      verified: true,
+    })
     res.json(result)
   } catch (error) {
     next(error)

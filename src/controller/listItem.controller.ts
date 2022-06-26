@@ -22,6 +22,17 @@ const getListItems = async (req, res, next) => {
   }
 }
 
+const appendToShoppingList = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const { body } = req
+    const result = await ListItemService.appendToShoppingList(id, body)
+    res.json(result)
+  } catch (ex) {
+    next(ex)
+  }
+}
+
 const deleteListItem = async (req, res, next) => {
   try {
     const { id } = req.params
@@ -49,4 +60,10 @@ const updateListItem = async (req, res, next) => {
   }
 }
 
-export { createListItem, getListItems, deleteListItem, updateListItem }
+export {
+  createListItem,
+  getListItems,
+  deleteListItem,
+  updateListItem,
+  appendToShoppingList,
+}

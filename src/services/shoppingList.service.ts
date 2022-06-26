@@ -11,7 +11,12 @@ const getShoppingLists = async (filter = {}) => {
 }
 
 const getShoppingList = async (filter = {}) => {
-  const result = await ShoppingListModel.findOne(filter)
+  const result = await ShoppingListModel.findOne(filter).populate({
+    path: 'items',
+    populate: {
+      path: 'buyableItem',
+    },
+  })
   return result
 }
 

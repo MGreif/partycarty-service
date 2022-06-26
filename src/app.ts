@@ -23,7 +23,7 @@ app.use(loggerMiddleware)
 
 app.use('/', indexRouter)
 app.use('/shopping-list', shoppingListRouter)
-app.use('/food-item', foodItemRouter)
+app.use('/buyable-item', foodItemRouter)
 app.use('/list-item', listItemRouter)
 
 app.use(errorHandler)
