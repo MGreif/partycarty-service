@@ -27,7 +27,7 @@ const appendToShoppingList = async (req, res, next) => {
     const { id } = req.params
     const { body } = req
     const result = await ListItemService.appendToShoppingList(id, body)
-    res.json(result)
+    res.json({ ...result, listitemId: id })
   } catch (ex) {
     next(ex)
   }
