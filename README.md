@@ -1,4 +1,4 @@
-# auth-service
+# partycarty-service
 
 # Installation
 
@@ -8,8 +8,8 @@ Preperation:
   - `PORT` - The Port this service will be available on (fallback is `8000`)
 
 Steps for containerization:
-- Build the Docker image `docker build . -t auth-service`
-- Run the Docker image `docker run --name auth-service -p 8000:8000 auth-service`
+- Build the Docker image `docker build . -t partycarty-service`
+- Run the Docker image `docker run --name partycarty-service -p 8000:8000 partycarty-service`
 
 Steps for Messaging
 - Start broker `cd docker; docker-compose -f docker-compose-rabbit-mq.yml up -d`
