@@ -12,8 +12,7 @@ const app = express()
 
 app.use(express.json())
 const corsOptions = {
-  //origin: 'http://frontend.greif.me',
-  origin: '*',
+  origin: ['https://partycarty.greif.me', 'http://localhost:3000'],
 }
 
 app.use(cors(corsOptions))
