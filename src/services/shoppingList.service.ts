@@ -1,3 +1,4 @@
+import { logger } from '../config/logger'
 import ShoppingListModel from '../models/shoppingList.model'
 
 const createShoppingList = async (data = {}) => {
@@ -11,13 +12,18 @@ const getShoppingLists = async (filter = {}) => {
 }
 
 const getShoppingList = async (filter = {}) => {
-  const result = await ShoppingListModel.findOne(filter).populate({
-    path: 'items',
-    populate: {
-      path: 'buyableItem',
-    },
-  })
-  return result
+  try {
+    const result = await ShoppingListModel.findOne(filter).populate({
+      path: 'items',
+      populate: {
+        path: 'buyableItem',
+      },
+    })
+    return result
+  } catch (err) {
+    logger.error(err)
+    return
+  }
 }
 
 const deleteShoppingList = async (id) => {
