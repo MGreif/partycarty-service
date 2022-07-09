@@ -17,8 +17,9 @@ const createBuyableItem = async (req, res, next) => {
 const getBuyableItems = async (req, res, next) => {
   try {
     const { query } = req
+    const { searchTerm } = query
     const result = await BuyableItemService.getBuyableItems({
-      ...query,
+      name: new RegExp(searchTerm, 'ig'),
       verified: true,
     })
     res.json(result)
