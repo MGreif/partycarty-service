@@ -1,5 +1,7 @@
 # partycarty-service
 
+This is the backend for the partycarty project.
+
 # Installation
 
 Preperation:
@@ -13,6 +15,11 @@ Steps for containerization:
 
 Steps for Messaging
 - Start broker `cd docker; docker-compose -f docker-compose-rabbit-mq.yml up -d`
+
+# Presentation
+
+The Production build of PartyCarty can be found [here](https://partycarty.greif.me) (https://partycarty.greif.me)
+
 
 # Scripts
 
