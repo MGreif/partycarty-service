@@ -22,7 +22,8 @@ const getBuyableItems = async (req, res, next) => {
       name: new RegExp(searchTerm, 'ig'),
       verified: true,
     })
-    res.json(result)
+
+    res.json(result.sort((a, b) => a.name.length - b.name.length))
   } catch (error) {
     next(error)
   }
